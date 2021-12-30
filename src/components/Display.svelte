@@ -1,17 +1,19 @@
 <script lang="ts">
   import type { Training } from '../types/pushups'
+  import { getExpectedResults } from '../store/pushups'
 
-  export let pushupsTraining: Training = null
+  export let data: Training = null
 </script>
 
 <article>
-  <div>Scope: {pushupsTraining.scope}</div>
+  <div>Scope: {data.scope}</div>
   <div>
     Date: {new Intl.DateTimeFormat('pl-PL', {
       dateStyle: 'full',
       timeStyle: 'short',
-    }).format(pushupsTraining.date)}
+    }).format(data.date)}
   </div>
-  <div>Day: {pushupsTraining.day}</div>
-  <div>Serie: {pushupsTraining.result}</div>
+  <div>Day: {data.day}</div>
+  <div>Serie: {data.result}</div>
+  <div>Expected: {getExpectedResults(data)}</div>
 </article>

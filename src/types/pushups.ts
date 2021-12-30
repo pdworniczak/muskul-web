@@ -9,7 +9,13 @@ export type Training = {
     day: Day
     date: Date,
     result: number[],
-    expected: number[]
+}
+
+export type EmptyTraining = {
+    scope?: Scope
+    day?: Day
+    date?: Date,
+    result?: number[],
 }
 
 export type TrainingDefinition = Record<Scope, Record<Day, Series>>

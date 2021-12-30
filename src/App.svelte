@@ -2,6 +2,34 @@
   import { Router, Route, Link } from 'svelte-navigator'
   import Program from './components/Program.svelte'
   import Add from './components/Add.svelte'
+  import { trainings } from './store/pushups'
+
+  const today = new Date()
+
+  trainings.update((p1) => [
+    ...p1,
+    {
+      date: new Date(today.setDate(today.getDate() - 5)),
+      day: 1,
+      scope: '11-20',
+      result: [11, 12, 8, 8, 13],
+      expected: [],
+    },
+    {
+      date: new Date(today.getTime()),
+      day: 3,
+      scope: '11-20',
+      result: [11, 12, 8, 8, 13],
+      expected: [],
+    },
+    {
+      date: new Date(today.setDate(today.getDate() - 3)),
+      day: 2,
+      scope: '11-20',
+      result: [11, 12, 8, 8, 13],
+      expected: [],
+    },
+  ])
 </script>
 
 <Router>
